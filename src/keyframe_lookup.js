@@ -22,7 +22,7 @@ const GetKeyframeInfo = (video_name, index) => {
 	if (!mapping)
 		return error;
 
-	if (parseInt(mapping['n']) != index) {
+	if (parseInt(mapping['n']) + 1 != index) {
 		alert(`Failed to lookup frame, index ${index} not found in mappings data`);
 		return error;
 	}
