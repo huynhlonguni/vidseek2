@@ -22,17 +22,17 @@ const GetKeyframeInfo = (video_name, index) => {
 	if (!mapping)
 		return error;
 
-	if (parseInt(mapping['n']) + 1 != index) {
+	if (parseInt(mapping['n']) != index) {
 		alert(`Failed to lookup frame, index ${index} not found in mappings data`);
 		return error;
 	}
-	return [parseInt(mapping["frame_idx"]) - 1, parseFloat(mapping["pts_time"]), parseFloat(mapping["fps"])];
+	return [parseInt(mapping["frame_idx"]), parseFloat(mapping["pts_time"]), parseFloat(mapping["fps"])];
 };
 
 const getFrame = (mapping, index) => {
 	if (index < 0 || index >= mapping.length) return -1;
 
-	return parseInt(mapping[index]["frame_idx"]) - 1;
+	return parseInt(mapping[index]["frame_idx"]);
 }
 
 const GetNearestKeyframes = (video_name, currentFrame) => {
